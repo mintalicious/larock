@@ -10,3 +10,5 @@ That is the reason why there are no port declarations in docker-compose.yml. If 
 
 - You can use jwilder's nginx-proxy as a proxy for all of your dockered webservers.
 * https://hub.docker.com/r/jwilder/nginx-proxy/
+
+You will need to install docker, docker-compose and composer for creating the laravel project.
