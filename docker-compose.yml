@@ -7,6 +7,8 @@ nginx:
         - ./sites:/etc/nginx/conf.d
     environment:
         - VIRTUAL_HOST=larock.dev
+    # ports:
+    #     - "80:80"
 
 phpfpm:
     build: .
@@ -31,3 +33,5 @@ phpmyadmin:
         - mysql:db
     environment:
         - VIRTUAL_HOST=pma.larock.dev
+    # ports:
+    #     - "8080:80"
