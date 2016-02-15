@@ -1,0 +1,33 @@
+nginx:
+    image: nginx
+    links:
+        - phpfpm
+    volumes:
+        - ./www:/var/www/html
+        - ./sites:/etc/nginx/conf.d
+    environment:
+        - VIRTUAL_HOST=larock.dev
+
+phpfpm:
+    build: .
+    links:
+        - mysql:db
+    volumes:
+        - ./www:/var/www/html
+
+mysql:
+    image: mysql
+    volumes:
+        - ./mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=password
+        - MYSQL_DATABASE=homestead
+        - MYSQL_USER=homestead
+        - MYSQL_PASSWORD=secret
+
+phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+        - mysql:db
+    environment:
+        - VIRTUAL_HOST=pma.larock.dev
