@@ -6,5 +6,7 @@ RUN apt-get update && apt-get -yq install libcurl3-dev libpng12-dev libjpeg-dev 
 RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/lib
 RUN docker-php-ext-install curl gd mbstring mcrypt pdo pdo_mysql zip
 
+COPY php/my_php.ini /usr/local/etc/php/conf.d/
+
 VOLUME /var/www/html
 EXPOSE 9000
